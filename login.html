@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Iniciar Sesión</title>
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+  <div class="login-container">
+    <h2>Iniciar Sesión</h2>
+    <form id="loginForm">
+      <input type="text" id="usuario" placeholder="Usuario" required>
+      <input type="password" id="clave" placeholder="Contraseña" required>
+      <button type="submit">Ingresar</button>
+    </form>
+    <p id="mensaje" style="color: #1abc9c; margin-top: 10px;"></p>
+  </div>
+
+  <script src="../js/login.js"></script> 
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const usuario = document.getElementById("usuario").value;
+      const clave = document.getElementById("clave").value;
+      const mensaje = document.getElementById("mensaje");
+
+      if (usuario === "admin" && clave === "12345") {
+        window.location.href = "actividades.html";
+      } else if (usuario === "usuario" && clave === "56789") {
+        window.location.href = "index.html";
+      } else {
+        mensaje.textContent = "Usuario o contraseña incorrectos.";
+      }
+    });
+  </script>
+</body>
+</html>
